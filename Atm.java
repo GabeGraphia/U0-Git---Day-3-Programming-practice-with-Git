@@ -46,7 +46,21 @@ public class Atm {
         } else {
             throw new Exception("no account");
         }
+    }
 
+    public double withdrawMoney(String accName, Double amount) throws Exception {
+        checkIfValid(accName);
+        checkIfValid(amount);
+        if (map.containsKey(accName)) {
+            if (amount <= map.get(accName)) {
+                map.put(accName, map.get(accName) - amount);
+                return amount;
+            } else {
+                throw new Exception("no money?");
+            }
+        } else {
+            throw new Exception("no account?");
+        }
     }
 
     private void checkIfValid(Object obj) throws Exception {
