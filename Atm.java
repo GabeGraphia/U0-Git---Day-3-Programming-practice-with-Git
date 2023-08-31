@@ -26,4 +26,12 @@ public class Atm {
         }
     }
 
+    public Double checkBalance(String accName) throws Exception {
+        if (!map.containsKey(accName)) {
+            throw new Exception("you dont have an account broke ass idiot");
+        } else {
+            return map.get(accName);
+        }
+    }
+
 }
