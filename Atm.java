@@ -63,10 +63,22 @@ public class Atm {
         }
     }
 
+    public boolean transferMoney(String from, String to, Double amount) throws Exception {
+        checkIfValid(from);
+        checkIfValid(to);
+        checkIfValid(amount);
+        try {
+            withdrawMoney(from, amount);
+            depositMoney(to, amount);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
+
     private void checkIfValid(Object obj) throws Exception {
         if (obj == null) {
             throw new Exception("WTF?");
         }
     }
-
 }
