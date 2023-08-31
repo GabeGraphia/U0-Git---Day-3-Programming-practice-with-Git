@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.PrintWriter;
 import java.util.HashMap;
 
 public class Atm {
@@ -74,6 +76,21 @@ public class Atm {
             return false;
         }
         return true;
+    }
+
+    public void audit() {
+        File f = new File("AccountAudit.txt");
+        f.delete();
+        try {
+            f.createNewFile();
+            PrintWriter pr = new PrintWriter(f);
+            map.forEach((key, value) -> {
+                pr.println("Account: " + key + "\tBalance: " + value);
+            });
+            pr.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void checkIfValid(Object obj) throws Exception {
