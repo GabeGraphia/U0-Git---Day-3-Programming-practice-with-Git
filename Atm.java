@@ -2,10 +2,10 @@ import java.io.File;
 import java.io.PrintWriter;
 import java.util.HashMap;
 
-public class Atm {
+public class ATM {
     HashMap<String, Double> map;
 
-    public Atm() {
+    public ATM() {
         map = new HashMap<String, Double>();
     }
 
